@@ -1,0 +1,74 @@
+server:
+  port: 10999
+  tomcat:
+    max-swallow-size: -1
+  servlet:
+    context-path: 
+  compression:
+    enabled: true
+    min-response-size: 1024
+    mime-types: application/javascript,application/json,application/xml,text/html,text/xml,text/plain,text/css,image/*
+spring:
+  application: 
+    name: gateway
+  profiles:
+    active: ${SERVER_ENVIROMENT:local}
+  cloud:
+    nacos:
+      discovery:
+        namespace: ${REGISTER_NAMESPACE:public}
+        server-addr: ${REGISTER_HOST:127.0.0.1}:${REGISTER_PORT:8848}
+        username: ${REGISTER_USERNAME:}
+        password: ${REGISTER_PASSWORD:}
+        weight: ${DISCOVERY_WEIGHT:10}
+        ip: ${DISCOVERY_DOMAIN:}
+      config:
+        namespace: ${REGISTER_NAMESPACE:public}
+        server-addr: ${REGISTER_HOST:127.0.0.1}:${REGISTER_PORT:8848}
+        username: ${REGISTER_USERNAME:}
+        password: ${REGISTER_PASSWORD:}
+        file-extension: yml
+        extension-configs:
+          - dataId: ${spring.application.name}.${spring.cloud.nacos.config.file-extension}
+    gateway:
+      white-list:
+      - /v2/api-docs
+      - /swagger/doc.json
+      - /api/v1/user/login
+      - /api/v1/user/quit
+      - /api/v1/user/register
+      - /api/v1/user/sendAuthCode
+      - /api/v1/user/getInviteInfo
+      - /api/v1/user/retrievePassword
+      - /api/task/captcha
+      - /api/v1/apps/hidden-config
+      - /api/v1/template-categories GET
+      - /api/v1/templates GET
+      - /api/v1/user/industryList
+      - /api/v1/user/update-password-by-username
+      - /websocket/memo
+      - /white-api/v1
+      - /api/v3/callback/s3
+      - /api/v3/site/config
+      - /api/v3/file/thumb
+      not-status-list:
+      - /api/v1/user/createOrg
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 2000
+        
+logging:
+  file:
+    path: /data/logs/lesscode-gateway

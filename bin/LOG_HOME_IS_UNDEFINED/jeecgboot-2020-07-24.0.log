@@ -1,0 +1,376 @@
+2020-07-24 00:08:11.840 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:225 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-24 00:08:12.160 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$944e9cef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:08:13.948 [restartedMain] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor:195 - LOCAL_SNAPSHOT_PATH:C:\Users\admin\nacos\config
+2020-07-24 00:08:13.999 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.Limiter:53 - limitTime:5.0
+2020-07-24 00:08:14.431 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway] & group[DEFAULT_GROUP]
+2020-07-24 00:08:14.437 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:08:14.442 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway-local.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:08:14.443 [restartedMain] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration:101 - Located property source: CompositePropertySource {name='NACOS', propertySources=[NacosPropertySource {name='gateway-local.yml,DEFAULT_GROUP'}, NacosPropertySource {name='gateway.yml,DEFAULT_GROUP'}, NacosPropertySource {name='gateway,DEFAULT_GROUP'}]}
+2020-07-24 00:08:14.448 [restartedMain] INFO  com.polaris.lesscode.gateway.Application:655 - The following profiles are active: local
+2020-07-24 00:08:15.391 [restartedMain] ERROR org.springframework.boot.SpringApplication:837 - Application run failed
+java.lang.IllegalStateException: Error processing condition on com.alibaba.cloud.nacos.discovery.NacosDiscoveryAutoConfiguration.nacosProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:184)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:144)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:236)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:280)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:96)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:707)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:533)
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:62)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.polaris.lesscode.gateway.Application.main(Application.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.alibaba.cloud.circuitbreaker.sentinel.ReactiveSentinelCircuitBreakerAutoConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@2a139a55]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:743)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(Unknown Source)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:742)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:681)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:649)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1608)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:495)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:230)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:223)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:213)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:167)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:142)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 23 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/cloud/client/circuitbreaker/ReactiveCircuitBreakerFactory
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+	at java.lang.Class.getDeclaredMethods(Unknown Source)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreakerFactory
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 43 common frames omitted
+2020-07-24 00:08:15.400 [restartedMain] WARN  org.springframework.boot.SpringApplication:819 - Unable to close ApplicationContext
+java.lang.IllegalStateException: Failed to introspect Class [com.alibaba.cloud.circuitbreaker.sentinel.ReactiveSentinelCircuitBreakerAutoConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@2a139a55]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:743)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(Unknown Source)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:742)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:681)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:649)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1608)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:495)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:617)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:609)
+	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1243)
+	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:880)
+	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:868)
+	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:855)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:806)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.polaris.lesscode.gateway.Application.main(Application.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.NoClassDefFoundError: org/springframework/cloud/client/circuitbreaker/ReactiveCircuitBreakerFactory
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+	at java.lang.Class.getDeclaredMethods(Unknown Source)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
+	... 26 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreakerFactory
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 30 common frames omitted
+2020-07-24 00:16:29.094 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:225 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-24 00:16:31.267 [restartedMain] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor:195 - LOCAL_SNAPSHOT_PATH:C:\Users\admin\nacos\config
+2020-07-24 00:16:31.327 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.Limiter:53 - limitTime:5.0
+2020-07-24 00:16:31.787 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway] & group[DEFAULT_GROUP]
+2020-07-24 00:16:31.794 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:16:31.800 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway-local.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:16:31.801 [restartedMain] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration:112 - Located property source: [BootstrapPropertySource {name='bootstrapProperties-gateway-local.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway,DEFAULT_GROUP'}]
+2020-07-24 00:16:31.809 [restartedMain] INFO  com.polaris.lesscode.gateway.GatewayApplication:655 - The following profiles are active: local
+2020-07-24 00:16:32.979 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:16:33.222 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:16:33.274 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:16:33.528 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope:295 - BeanFactory id=b1631c4d-f0a9-36b7-9b1e-f34f411b598c
+2020-07-24 00:16:34.062 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:213 - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-24 00:16:34.074 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:300 - No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-24 00:16:34.080 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:460 - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-24 00:16:34.382 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$a31b5938] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.394 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'bindersHealthContributor' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.400 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'bindersHealthIndicatorListener' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.407 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.stream.binder.rabbit.config.ExtendedBindingHandlerMappingsProviderConfiguration' of type [org.springframework.cloud.stream.binder.rabbit.config.ExtendedBindingHandlerMappingsProviderConfiguration$$EnhancerBySpringCGLIB$$5520a9ad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.413 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'rabbitExtendedPropertiesDefaultMappingsProvider' of type [org.springframework.cloud.stream.binder.rabbit.config.ExtendedBindingHandlerMappingsProviderConfiguration$$Lambda$310/1082099686] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.423 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'BindingHandlerAdvise' of type [org.springframework.cloud.stream.config.BindingHandlerAdvise] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.438 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'spelConverter' of type [org.springframework.cloud.stream.config.SpelExpressionConverterConfiguration$SpelConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.486 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'spring.cloud.sentinel-com.alibaba.cloud.sentinel.SentinelProperties' of type [com.alibaba.cloud.sentinel.SentinelProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.570 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration' of type [com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.590 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.592 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.636 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.647 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.649 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.654 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:16:34.994 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource:121 - No URLs will be polled as dynamic configuration sources.
+2020-07-24 00:16:34.995 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource:122 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-24 00:16:35.014 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource:121 - No URLs will be polled as dynamic configuration sources.
+2020-07-24 00:16:35.021 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource:122 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-24 00:16:37.207 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:16:38.823 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:16:39.931 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [After]
+2020-07-24 00:16:39.932 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Before]
+2020-07-24 00:16:39.932 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Between]
+2020-07-24 00:16:39.932 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Cookie]
+2020-07-24 00:16:39.932 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Header]
+2020-07-24 00:16:39.933 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Host]
+2020-07-24 00:16:39.933 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Method]
+2020-07-24 00:16:39.933 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Path]
+2020-07-24 00:16:39.933 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Query]
+2020-07-24 00:16:39.933 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [ReadBodyPredicateFactory]
+2020-07-24 00:16:39.933 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [RemoteAddr]
+2020-07-24 00:16:39.934 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Weight]
+2020-07-24 00:16:39.934 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2020-07-24 00:16:40.337 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:16:40.338 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:16:40.387 [restartedMain] INFO  com.alibaba.nacos.client.naming:56 - initializer namespace from System Property :null
+2020-07-24 00:16:40.388 [restartedMain] INFO  com.alibaba.nacos.client.naming:65 - initializer namespace from System Environment :null
+2020-07-24 00:16:40.389 [restartedMain] INFO  com.alibaba.nacos.client.naming:75 - initializer namespace from System Property :null
+2020-07-24 00:16:42.830 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:16:42.897 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-07-24 00:16:42.989 [restartedMain] INFO  c.a.c.sentinel.SentinelWebFluxAutoConfiguration:91 - [Sentinel Starter] register Sentinel SentinelWebFluxFilter
+2020-07-24 00:16:43.115 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler:181 - Initializing ExecutorService 'taskScheduler'
+2020-07-24 00:16:43.477 [restartedMain] INFO  o.s.c.s.f.FunctionConfiguration$FunctionBindingRegistrar:697 - Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2020-07-24 00:16:43.583 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2020-07-24 00:16:45.228 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:16:45.445 [restartedMain] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel:64 - Channel 'gateway-1.springCloudBusInput' has 1 subscriber(s).
+2020-07-24 00:16:45.468 [restartedMain] INFO  o.s.integration.endpoint.EventDrivenConsumer:107 - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-24 00:16:45.468 [restartedMain] INFO  o.s.integration.channel.PublishSubscribeChannel:64 - Channel 'gateway-1.errorChannel' has 1 subscriber(s).
+2020-07-24 00:16:45.468 [restartedMain] INFO  o.s.integration.endpoint.EventDrivenConsumer:159 - started bean '_org.springframework.integration.errorLogger'
+2020-07-24 00:16:45.470 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:237 - Creating binder: rabbit
+2020-07-24 00:16:47.183 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway] & group[DEFAULT_GROUP]
+2020-07-24 00:16:47.187 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:16:47.191 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway-local.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:16:47.192 [restartedMain] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration:112 - Located property source: [BootstrapPropertySource {name='bootstrapProperties-gateway-local.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway,DEFAULT_GROUP'}]
+2020-07-24 00:16:47.390 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway-local.yml+DEFAULT_GROUP
+2020-07-24 00:16:47.392 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway-local.yml, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:16:47.392 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway.yml+DEFAULT_GROUP
+2020-07-24 00:16:47.393 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway.yml, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:16:47.393 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway+DEFAULT_GROUP
+2020-07-24 00:16:47.393 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:16:47.394 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:337 - Caching the binder: rabbit
+2020-07-24 00:16:47.394 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:341 - Retrieving cached binder: rabbit
+2020-07-24 00:16:47.451 [restartedMain] INFO  o.s.a.rabbit.connection.CachingConnectionFactory:558 - Attempting to connect to: [localhost:5672]
+2020-07-24 00:16:47.522 [restartedMain] INFO  o.s.a.rabbit.connection.CachingConnectionFactory:511 - Created new connection: rabbitConnectionFactory#7700b443:0/SimpleConnection@b27cdb [delegate=amqp://guest@127.0.0.1:5672/, localPort= 34664]
+2020-07-24 00:16:47.573 [restartedMain] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel:64 - Channel 'gateway-1.springCloudBusOutput' has 1 subscriber(s).
+2020-07-24 00:16:47.580 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:341 - Retrieving cached binder: rabbit
+2020-07-24 00:16:47.672 [restartedMain] INFO  o.s.c.s.b.r.p.RabbitExchangeQueueProvisioner:237 - declaring queue for inbound: springCloudBus.anonymous.-J0tm-DJR22kMAsLZl71vA, bound to: springCloudBus
+2020-07-24 00:16:47.909 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel:64 - Channel 'springCloudBus.anonymous.-J0tm-DJR22kMAsLZl71vA.errors' has 1 subscriber(s).
+2020-07-24 00:16:47.909 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel:64 - Channel 'springCloudBus.anonymous.-J0tm-DJR22kMAsLZl71vA.errors' has 2 subscriber(s).
+2020-07-24 00:16:47.963 [restartedMain] INFO  o.s.i.amqp.inbound.AmqpInboundChannelAdapter:159 - started bean 'inbound.springCloudBus.anonymous.-J0tm-DJR22kMAsLZl71vA'
+2020-07-24 00:16:48.668 [restartedMain] INFO  o.s.boot.web.embedded.netty.NettyWebServer:109 - Netty started on port(s): 10999
+2020-07-24 00:16:50.186 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:16:51.735 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:16:51.738 [restartedMain] INFO  com.alibaba.nacos.client.naming:58 - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"169.254.187.36","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":10999,"scheduled":false,"serviceName":"DEFAULT_GROUP@@gateway","stopped":false,"weight":1.0} to beat map.
+2020-07-24 00:16:51.855 [restartedMain] INFO  com.alibaba.nacos.client.naming:175 - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@gateway with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"169.254.187.36","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":10999,"weight":1.0}
+2020-07-24 00:16:51.878 [restartedMain] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry:65 - nacos registry, DEFAULT_GROUP gateway 169.254.187.36:10999 register finished
+2020-07-24 00:16:51.925 [restartedMain] INFO  com.polaris.lesscode.gateway.GatewayApplication:61 - Started GatewayApplication in 25.417 seconds (JVM running for 26.55)
+2020-07-24 00:30:56.324 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:225 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-24 00:30:58.838 [restartedMain] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor:195 - LOCAL_SNAPSHOT_PATH:C:\Users\admin\nacos\config
+2020-07-24 00:30:58.949 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.Limiter:53 - limitTime:5.0
+2020-07-24 00:31:00.780 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway] & group[DEFAULT_GROUP]
+2020-07-24 00:31:00.786 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:31:00.791 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway-local.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:31:00.792 [restartedMain] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration:112 - Located property source: [BootstrapPropertySource {name='bootstrapProperties-gateway-local.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway,DEFAULT_GROUP'}]
+2020-07-24 00:31:00.798 [restartedMain] INFO  com.polaris.lesscode.gateway.GatewayApplication:655 - The following profiles are active: local
+2020-07-24 00:31:02.057 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:31:02.269 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:31:02.325 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:31:03.055 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope:295 - BeanFactory id=b1631c4d-f0a9-36b7-9b1e-f34f411b598c
+2020-07-24 00:31:03.610 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:213 - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-24 00:31:03.618 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:300 - No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-24 00:31:03.624 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:460 - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-24 00:31:04.076 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$1ad25386] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.094 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'bindersHealthContributor' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.104 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'bindersHealthIndicatorListener' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.110 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.stream.binder.rabbit.config.ExtendedBindingHandlerMappingsProviderConfiguration' of type [org.springframework.cloud.stream.binder.rabbit.config.ExtendedBindingHandlerMappingsProviderConfiguration$$EnhancerBySpringCGLIB$$ccd7a3fb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.119 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'rabbitExtendedPropertiesDefaultMappingsProvider' of type [org.springframework.cloud.stream.binder.rabbit.config.ExtendedBindingHandlerMappingsProviderConfiguration$$Lambda$310/1479415470] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.134 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'BindingHandlerAdvise' of type [org.springframework.cloud.stream.config.BindingHandlerAdvise] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.153 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'spelConverter' of type [org.springframework.cloud.stream.config.SpelExpressionConverterConfiguration$SpelConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.201 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'spring.cloud.sentinel-com.alibaba.cloud.sentinel.SentinelProperties' of type [com.alibaba.cloud.sentinel.SentinelProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.322 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration' of type [com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.347 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.356 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.402 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.425 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.429 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:04.435 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:31:05.491 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource:121 - No URLs will be polled as dynamic configuration sources.
+2020-07-24 00:31:05.491 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource:122 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-24 00:31:05.502 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource:121 - No URLs will be polled as dynamic configuration sources.
+2020-07-24 00:31:05.503 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource:122 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-24 00:31:09.088 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:31:12.264 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:31:18.859 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [After]
+2020-07-24 00:31:18.859 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Before]
+2020-07-24 00:31:18.859 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Between]
+2020-07-24 00:31:18.859 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Cookie]
+2020-07-24 00:31:18.859 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Header]
+2020-07-24 00:31:18.860 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Host]
+2020-07-24 00:31:18.860 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Method]
+2020-07-24 00:31:18.860 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Path]
+2020-07-24 00:31:18.861 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Query]
+2020-07-24 00:31:18.861 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [ReadBodyPredicateFactory]
+2020-07-24 00:31:18.861 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [RemoteAddr]
+2020-07-24 00:31:18.863 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Weight]
+2020-07-24 00:31:18.863 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2020-07-24 00:31:20.442 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:31:20.443 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:31:20.582 [restartedMain] INFO  com.alibaba.nacos.client.naming:56 - initializer namespace from System Property :null
+2020-07-24 00:31:20.584 [restartedMain] INFO  com.alibaba.nacos.client.naming:65 - initializer namespace from System Environment :null
+2020-07-24 00:31:20.587 [restartedMain] INFO  com.alibaba.nacos.client.naming:75 - initializer namespace from System Property :null
+2020-07-24 00:31:31.295 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:31:31.374 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-07-24 00:31:31.568 [restartedMain] INFO  c.a.c.sentinel.SentinelWebFluxAutoConfiguration:91 - [Sentinel Starter] register Sentinel SentinelWebFluxFilter
+2020-07-24 00:31:31.718 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler:181 - Initializing ExecutorService 'taskScheduler'
+2020-07-24 00:31:32.038 [restartedMain] INFO  o.s.c.s.f.FunctionConfiguration$FunctionBindingRegistrar:697 - Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2020-07-24 00:31:32.125 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer:61 - Unable to start LiveReload server
+2020-07-24 00:31:37.048 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:31:37.725 [restartedMain] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel:64 - Channel 'gateway-1.springCloudBusInput' has 1 subscriber(s).
+2020-07-24 00:31:37.797 [restartedMain] INFO  o.s.integration.endpoint.EventDrivenConsumer:107 - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-24 00:31:37.797 [restartedMain] INFO  o.s.integration.channel.PublishSubscribeChannel:64 - Channel 'gateway-1.errorChannel' has 1 subscriber(s).
+2020-07-24 00:31:37.797 [restartedMain] INFO  o.s.integration.endpoint.EventDrivenConsumer:159 - started bean '_org.springframework.integration.errorLogger'
+2020-07-24 00:31:37.799 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:237 - Creating binder: rabbit
+2020-07-24 00:31:40.591 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway] & group[DEFAULT_GROUP]
+2020-07-24 00:31:40.595 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:31:40.599 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway-local.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:31:40.599 [restartedMain] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration:112 - Located property source: [BootstrapPropertySource {name='bootstrapProperties-gateway-local.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway,DEFAULT_GROUP'}]
+2020-07-24 00:31:41.220 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway-local.yml+DEFAULT_GROUP
+2020-07-24 00:31:41.222 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway-local.yml, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:31:41.225 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway.yml+DEFAULT_GROUP
+2020-07-24 00:31:41.226 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway.yml, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:31:41.226 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway+DEFAULT_GROUP
+2020-07-24 00:31:41.226 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:31:41.227 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:337 - Caching the binder: rabbit
+2020-07-24 00:31:41.228 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:341 - Retrieving cached binder: rabbit
+2020-07-24 00:31:41.433 [restartedMain] INFO  o.s.a.rabbit.connection.CachingConnectionFactory:558 - Attempting to connect to: [localhost:5672]
+2020-07-24 00:31:42.011 [restartedMain] INFO  o.s.a.rabbit.connection.CachingConnectionFactory:511 - Created new connection: rabbitConnectionFactory#7cfdf70b:0/SimpleConnection@58035c04 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 35536]
+2020-07-24 00:31:42.133 [restartedMain] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel:64 - Channel 'gateway-1.springCloudBusOutput' has 1 subscriber(s).
+2020-07-24 00:31:42.139 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:341 - Retrieving cached binder: rabbit
+2020-07-24 00:31:42.322 [restartedMain] INFO  o.s.c.s.b.r.p.RabbitExchangeQueueProvisioner:237 - declaring queue for inbound: springCloudBus.anonymous.pwwSkEsfSBqpNuOl1M332g, bound to: springCloudBus
+2020-07-24 00:31:42.437 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel:64 - Channel 'springCloudBus.anonymous.pwwSkEsfSBqpNuOl1M332g.errors' has 1 subscriber(s).
+2020-07-24 00:31:42.438 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel:64 - Channel 'springCloudBus.anonymous.pwwSkEsfSBqpNuOl1M332g.errors' has 2 subscriber(s).
+2020-07-24 00:31:42.487 [restartedMain] INFO  o.s.i.amqp.inbound.AmqpInboundChannelAdapter:159 - started bean 'inbound.springCloudBus.anonymous.pwwSkEsfSBqpNuOl1M332g'
+2020-07-24 00:31:43.651 [restartedMain] INFO  o.s.boot.web.embedded.netty.NettyWebServer:109 - Netty started on port(s): 10999
+2020-07-24 00:31:45.265 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:31:48.057 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:31:48.064 [restartedMain] INFO  com.alibaba.nacos.client.naming:58 - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"169.254.187.36","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":10999,"scheduled":false,"serviceName":"DEFAULT_GROUP@@gateway","stopped":false,"weight":1.0} to beat map.
+2020-07-24 00:31:48.292 [restartedMain] INFO  com.alibaba.nacos.client.naming:175 - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@gateway with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"169.254.187.36","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":10999,"weight":1.0}
+2020-07-24 00:31:48.307 [restartedMain] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry:65 - nacos registry, DEFAULT_GROUP gateway 169.254.187.36:10999 register finished
+2020-07-24 00:31:48.355 [restartedMain] INFO  com.polaris.lesscode.gateway.GatewayApplication:61 - Started GatewayApplication in 55.821 seconds (JVM running for 56.797)
+2020-07-24 00:46:36.275 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:225 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-24 00:46:40.390 [restartedMain] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor:195 - LOCAL_SNAPSHOT_PATH:C:\Users\admin\nacos\config
+2020-07-24 00:46:40.448 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.Limiter:53 - limitTime:5.0
+2020-07-24 00:46:41.700 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway] & group[DEFAULT_GROUP]
+2020-07-24 00:46:41.706 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:46:41.712 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway-local.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:46:41.713 [restartedMain] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration:112 - Located property source: [BootstrapPropertySource {name='bootstrapProperties-gateway-local.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway,DEFAULT_GROUP'}]
+2020-07-24 00:46:41.725 [restartedMain] INFO  com.polaris.lesscode.gateway.GatewayApplication:655 - The following profiles are active: local
+2020-07-24 00:46:44.674 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:46:45.180 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:46:45.530 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:46:45.876 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope:295 - BeanFactory id=c0491605-d51f-34ed-b834-87fe910e817e
+2020-07-24 00:46:46.519 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:213 - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-24 00:46:46.529 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:300 - No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-24 00:46:46.548 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor:460 - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-24 00:46:46.907 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:46:46.915 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:46:46.971 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:46:47.022 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:46:47.028 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:46:47.030 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335 - Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 00:46:48.069 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource:121 - No URLs will be polled as dynamic configuration sources.
+2020-07-24 00:46:48.069 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource:122 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-24 00:46:48.076 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource:121 - No URLs will be polled as dynamic configuration sources.
+2020-07-24 00:46:48.077 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource:122 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-24 00:46:52.813 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:46:57.271 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:47:02.392 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [After]
+2020-07-24 00:47:02.392 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Before]
+2020-07-24 00:47:02.392 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Between]
+2020-07-24 00:47:02.393 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Cookie]
+2020-07-24 00:47:02.393 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Header]
+2020-07-24 00:47:02.393 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Host]
+2020-07-24 00:47:02.393 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Method]
+2020-07-24 00:47:02.395 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Path]
+2020-07-24 00:47:02.396 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Query]
+2020-07-24 00:47:02.396 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [ReadBodyPredicateFactory]
+2020-07-24 00:47:02.396 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [RemoteAddr]
+2020-07-24 00:47:02.397 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [Weight]
+2020-07-24 00:47:02.397 [restartedMain] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator:139 - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2020-07-24 00:47:03.602 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:47:03.603 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId:155 - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-07-24 00:47:03.740 [restartedMain] INFO  com.alibaba.nacos.client.naming:56 - initializer namespace from System Property :null
+2020-07-24 00:47:03.819 [restartedMain] INFO  com.alibaba.nacos.client.naming:65 - initializer namespace from System Environment :null
+2020-07-24 00:47:03.820 [restartedMain] INFO  com.alibaba.nacos.client.naming:75 - initializer namespace from System Property :null
+2020-07-24 00:47:07.574 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:47:07.621 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-07-24 00:47:07.790 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler:181 - Initializing ExecutorService 'taskScheduler'
+2020-07-24 00:47:08.049 [restartedMain] INFO  o.s.c.s.f.FunctionConfiguration$FunctionBindingRegistrar:697 - Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2020-07-24 00:47:08.119 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer:61 - Unable to start LiveReload server
+2020-07-24 00:47:09.847 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:47:11.013 [restartedMain] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel:64 - Channel 'gateway-1.springCloudBusInput' has 1 subscriber(s).
+2020-07-24 00:47:11.134 [restartedMain] INFO  o.s.integration.endpoint.EventDrivenConsumer:107 - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-24 00:47:11.135 [restartedMain] INFO  o.s.integration.channel.PublishSubscribeChannel:64 - Channel 'gateway-1.errorChannel' has 1 subscriber(s).
+2020-07-24 00:47:11.135 [restartedMain] INFO  o.s.integration.endpoint.EventDrivenConsumer:159 - started bean '_org.springframework.integration.errorLogger'
+2020-07-24 00:47:11.137 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:237 - Creating binder: rabbit
+2020-07-24 00:47:13.243 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway] & group[DEFAULT_GROUP]
+2020-07-24 00:47:13.247 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:47:13.251 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[gateway-local.yml] & group[DEFAULT_GROUP]
+2020-07-24 00:47:13.252 [restartedMain] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration:112 - Located property source: [BootstrapPropertySource {name='bootstrapProperties-gateway-local.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-gateway,DEFAULT_GROUP'}]
+2020-07-24 00:47:13.413 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway-local.yml+DEFAULT_GROUP
+2020-07-24 00:47:13.414 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway-local.yml, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:47:13.415 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway.yml+DEFAULT_GROUP
+2020-07-24 00:47:13.415 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway.yml, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:47:13.415 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:202 - [fixed-192.168.88.222_8848] [subscribe] gateway+DEFAULT_GROUP
+2020-07-24 00:47:13.416 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData:79 - [fixed-192.168.88.222_8848] [add-listener] ok, tenant=, dataId=gateway, group=DEFAULT_GROUP, cnt=1
+2020-07-24 00:47:13.416 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:337 - Caching the binder: rabbit
+2020-07-24 00:47:13.416 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:341 - Retrieving cached binder: rabbit
+2020-07-24 00:47:13.495 [restartedMain] INFO  o.s.a.rabbit.connection.CachingConnectionFactory:558 - Attempting to connect to: [localhost:5672]
+2020-07-24 00:47:13.567 [restartedMain] INFO  o.s.a.rabbit.connection.CachingConnectionFactory:511 - Created new connection: rabbitConnectionFactory#25373d49:0/SimpleConnection@115ba816 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 37546]
+2020-07-24 00:47:13.597 [restartedMain] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel:64 - Channel 'gateway-1.springCloudBusOutput' has 1 subscriber(s).
+2020-07-24 00:47:13.601 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory:341 - Retrieving cached binder: rabbit
+2020-07-24 00:47:13.646 [restartedMain] INFO  o.s.c.s.b.r.p.RabbitExchangeQueueProvisioner:237 - declaring queue for inbound: springCloudBus.anonymous.78HpE4nARbOOQXAwT2befg, bound to: springCloudBus
+2020-07-24 00:47:13.690 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel:64 - Channel 'springCloudBus.anonymous.78HpE4nARbOOQXAwT2befg.errors' has 1 subscriber(s).
+2020-07-24 00:47:13.692 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel:64 - Channel 'springCloudBus.anonymous.78HpE4nARbOOQXAwT2befg.errors' has 2 subscriber(s).
+2020-07-24 00:47:13.712 [restartedMain] INFO  o.s.i.amqp.inbound.AmqpInboundChannelAdapter:159 - started bean 'inbound.springCloudBus.anonymous.78HpE4nARbOOQXAwT2befg'
+2020-07-24 00:47:14.465 [restartedMain] INFO  o.s.boot.web.embedded.netty.NettyWebServer:109 - Netty started on port(s): 10999
+2020-07-24 00:47:16.105 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:47:17.903 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2020-07-24 00:47:17.905 [restartedMain] INFO  com.alibaba.nacos.client.naming:58 - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"169.254.187.36","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":10999,"scheduled":false,"serviceName":"DEFAULT_GROUP@@gateway","stopped":false,"weight":1.0} to beat map.
+2020-07-24 00:47:18.011 [restartedMain] INFO  com.alibaba.nacos.client.naming:175 - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@gateway with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"169.254.187.36","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":10999,"weight":1.0}
+2020-07-24 00:47:18.026 [restartedMain] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry:65 - nacos registry, DEFAULT_GROUP gateway 169.254.187.36:10999 register finished
+2020-07-24 00:47:18.059 [restartedMain] INFO  com.polaris.lesscode.gateway.GatewayApplication:61 - Started GatewayApplication in 45.026 seconds (JVM running for 45.953)

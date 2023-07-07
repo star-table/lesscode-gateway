@@ -1,0 +1,5 @@
+com\polaris\lesscode\gateway\filter\AuthGatewayFilterFactory.class
+com\polaris\lesscode\gateway\filter\AuthGatewayFilter.class
+com\polaris\lesscode\gateway\GatewayApplication.class
+com\polaris\lesscode\gateway\provider\UserProvider.class
+com\polaris\lesscode\gateway\provider\UserProviderFallback.class
